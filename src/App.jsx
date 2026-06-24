@@ -7,7 +7,7 @@ function App() {
   const [application, setApplication] = useState([])
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/applications')
+    fetch('https://job-tracker-flvq.onrender.com/applications')
     .then(res => res.json())
     .then(data => setApplication(data))
   }, [])
@@ -17,7 +17,7 @@ function App() {
 }
 
 function handleDelete(id) {
-  fetch(`http://127.0.0.1:8000/applications/${id}`, {
+  fetch(`https://job-tracker-flvq.onrender.com/applications/${id}`, {
     method: 'DELETE'
   })
     .then(() => setApplication(application.filter(app => app.id !== id)))
@@ -48,8 +48,8 @@ function handleDelete(id) {
             <td>{app.priority}</td>
             <td>{app.notes}</td>
             <td>
-  <button onClick={() => handleDelete(app.id)}>Delete</button>
-</td>
+              <button onClick={() => handleDelete(app.id)}>Delete</button>
+            </td>
           </tr>
         ))}
       </tbody>
